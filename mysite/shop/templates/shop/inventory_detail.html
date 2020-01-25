@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <p>가격: {{ inventory.price }}</p>
+    <p>남은 수량: {{ inventory.stock }}</p>
+    <p>제품 설명: {{ inventory.desc }}</p>
+    <p><a href="">거래처: {{ inventory.client }}</a></p>
+
+{% endblock %}

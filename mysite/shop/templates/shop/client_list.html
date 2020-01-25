@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+    {% for client in clients %}
+    <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="name"><a href="{% url "client-detail" client.pk %}">{{ client.name }}</a></h5>
+                    <p class="tel">{{ client.tel }}</p>
+                    <p class="address">{{ inventory.address }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</ul>
+
+{% endblock %}

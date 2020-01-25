@@ -12,7 +12,7 @@
                     <img src="{{ inventory.photo }}" style="max-width: 100%;" class="card-img-top" alt="..." />
                 {% endif %}
                 <div class="card-body">
-                    <h5 class="name"><a href="">{{ inventory.name }}</a></h5>
+                    <h5 class="name"><a href="{% url "inventory-detail" inventory.pk %}">{{ inventory.name }}</a></h5>
                     <p class="price">가격: {{ inventory.price }}</p>
                     <p class="stock">남은 수량: {{ inventory.stock }}</p>
                 </div>
