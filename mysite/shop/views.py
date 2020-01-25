@@ -4,8 +4,8 @@ from .models import Inventory, Client
 
 
 def inventory_list(request):
-    inventory = Inventory.objects.all()
-    data = {
-        'inventory': inventory
+    inventories = Inventory.objects.all()
+    context = {
+        'inventories': inventories,
     }
-    return render(request, 'shop/inventory_list.html', data)
+    return render(request, 'shop/inventory_list.html', context)
