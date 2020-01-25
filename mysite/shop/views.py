@@ -1,7 +1,11 @@
-from django.shortcuts import render
-
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from .models import Inventory, Client
 
 
 def inventory_list(request):
-    return HttpResponse("Hello, world. You're at the shop inventory_list.")
+    inventory = Inventory.objects.all()
+    data = {
+        'inventory': inventory
+    }
+    return render(request, 'shop/inventory_list.html', data)
