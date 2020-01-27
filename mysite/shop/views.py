@@ -10,12 +10,27 @@ def inventory_list(request):
 
 
 # def inventory_stock(request, stock_plus, stock_minus):
-#     inventory = Inventory.objects.all()
+#     inventory =
 #     stock = inventory.stock
 #     if stock_plus:
-#         return stock += 1
+#         stock += 1
+#         stock.save()
 #     elif stock_minus:
 #         return stock -= 1
+
+# def stock_edit(request):
+#     inventory = Inventory.objects.all()
+#     if inventory.stock >= 0:
+#         if:
+#             inventory.stock += 1
+#             inventory.save()
+#         else:
+#             inventory.stock -= 1
+#             inventory.save()
+#
+#         return redirect('inventory-list')
+#     return render(request, 'shop/inventory-detail.html', {'inventory':inventory, })
+#
 
 def inventory_create(request, inventory=None):
     if request.method == 'POST':
