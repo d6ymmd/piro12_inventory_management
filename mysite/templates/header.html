@@ -1,17 +1,20 @@
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'inventory-list' %}">
-        <img src="/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+        <img src="https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-9/75332821_2462692640645362_6889331996112191488_o.jpg?_nc_cat=103&_nc_ohc=_eyu2eOo3nkAX9Y-8vZ&_nc_ht=scontent-icn1-1.xx&oh=fabe2a76a69e5c5de31f5e058eb70929&oe=5ECDF2E6"
+             width="40" height="40" alt=""
+             style="border-radius:50%;">
     </a>
     <ul class="nav justify-content-end">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">상품 등록</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">거래처 등록</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">거래처 관리</a>
-  </li>
-</ul>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url "inventory-create" %}">상품 등록</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url "client-create" %}">거래처 등록</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url "client-list" %}">거래처 관리</a>
+        </li>
+    </ul>
 
 </nav>
+

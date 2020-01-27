@@ -2,15 +2,14 @@
 
 {% block content %}
 
-<h4>거래처 등록</h4>
-
-<form action="{% url 'client-create' %}" method="POST">'
-    {% csrf_token %}
-    <br />
-    <p>이름: <input type="text" name="name"></p>
-    <p>전화번호: <input type="text" name="tel"></p>
-    <p>주소: <input type="text" name="address"></p>
-    <input type="submit">
-</form>
-
+<div calss="col-sm-12">
+    <h4>거래처 등록</h4>
+    <form action="{% url 'client-create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="등록">
+    </form>
+</div>
 {% endblock %}

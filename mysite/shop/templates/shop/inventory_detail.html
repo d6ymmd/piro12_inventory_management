@@ -1,9 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <p>가격: {{ inventory.price }}</p>
-    <p>남은 수량: {{ inventory.stock }}</p>
-    <p>제품 설명: {{ inventory.desc }}</p>
-    <p><a href="">거래처: {{ inventory.client }}</a></p>
+<div class="row justify-content-center">
+    <div class="col col-5">
+        <div class="card">
+            <img src="{{ inventory.photo.url }}" style="max-width: 100%;" class="card-img-top" alt="..." />
+            <div class="card-body">
+                <p class="price">가격: {{ inventory.price }}</p>
+                <p class="stock">남은 수량: {{ inventory.stock }}</p>
+                <p>제품 설명: {{ inventory.desc }}</p>
+                <p><a href="">거래처: {{ inventory.client }}</p>
+            </div>
+        </div>
+            <button>수정</button>
+            <button>삭제</button>
+            <button>목록</button>
+    </div>
+</div>
 
 {% endblock %}

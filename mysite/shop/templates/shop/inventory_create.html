@@ -1,18 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h4>상품 등록</h4>
-
-<form action="{% url 'inventory-create' %}" method="POST">
-    {% csrf_token %}
-    <br />
-    <p>제품명: <input type="text" name="name"></p>
-    <p>제품 사진: <input type="file" name="photo"></p>
-    <p>제품 설명: <input type="text" name="desc"></p>
-    <p>가격: <input type="text" name="price"></p>
-    <p>남은 수량: <input type="text" name="stock"></p>
-    <p>거래처: <input type="text" name="client"></p>
-    <input type="submit">
-</form>
-
+<div calss="col-sm-12">
+    <h4>상품 등록</h4>
+    <form action="{% url 'inventory-create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="등록">
+    </form>
+</div>
 {% endblock %}

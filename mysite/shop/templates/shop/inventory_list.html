@@ -4,21 +4,23 @@
 
 
 <ul>
-    {% for inventory in inventories %}
     <div class="row row-cols-1 row-cols-md-3">
+    {% for inventory in inventories %}
+
         <div class="col mb-4">
-            <div class="card h-100">
-                {% if inventory.photo %}
-                    <img src="{{ inventory.photo }}" style="max-width: 100%;" class="card-img-top" alt="..." />
-                {% endif %}
+            <div class="card">
+                <img src="{{ inventory.photo.url }}" style="max-width: 100%;" class="card-img-top" alt="..." />
                 <div class="card-body">
                     <h5 class="name"><a href="{% url "inventory-detail" inventory.pk %}">{{ inventory.name }}</a></h5>
                     <p class="price">가격: {{ inventory.price }}</p>
                     <p class="stock">남은 수량: {{ inventory.stock }}</p>
+                    <button>-</button>
+                    <button>+</button>
                 </div>
             </div>
         </div>
-    </div>
+
     {% endfor %}
+    </div>
 </ul>
 {% endblock %}

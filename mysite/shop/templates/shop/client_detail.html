@@ -1,9 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h5>{{ client.name }}</h5>
-    <p>{{ client.tel }}</p>
-    <p>{{ client.address }}</p>
-    <hr />
-    <p>거래상품 목록.for문?</p>
+
+<div class="row justify-content-center">
+    <div class="col col-7">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="name">{{ client.name }}</h5>
+                <p class="tel">{{ client.tel }}</p>
+                <p class="address">{{ client.address }}</p>
+                <hr />
+                <p>거래 상품 목록</p>
+            </div>
+        </div>
+            <button>수정</button>
+            <button>삭제</button>
+            <button>목록</button>
+    </div>
+</div>
 {% endblock %}
