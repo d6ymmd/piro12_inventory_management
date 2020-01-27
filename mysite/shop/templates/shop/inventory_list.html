@@ -14,7 +14,7 @@
                     <h5 class="name"><a href="{% url "inventory-detail" inventory.pk %}">{{ inventory.name }}</a></h5>
                     <p class="price">가격: {{ inventory.price }}</p>
                     <p class="stock">남은 수량: {{ inventory.stock }}</p>
-                    <button>-</button>
+                    <button><a href="" class="stock_minus">-</a></button>
                     <button>+</button>
                 </div>
             </div>

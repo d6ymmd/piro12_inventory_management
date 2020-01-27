@@ -9,6 +9,14 @@ def inventory_list(request):
     return render(request, 'shop/inventory_list.html', {'inventories': inventories, })
 
 
+# def inventory_stock(request, stock_plus, stock_minus):
+#     inventory = Inventory.objects.all()
+#     stock = inventory.stock
+#     if stock_plus:
+#         return stock += 1
+#     elif stock_minus:
+#         return stock -= 1
+
 def inventory_create(request, inventory=None):
     if request.method == 'POST':
         form = InventoryForm(request.POST, request.FILES, instance=inventory)

@@ -13,9 +13,9 @@
                 <hr />
 
                 {% for inventory in inventories %}
-                {% if inventory.client == client.name %}
-                <p class="inventory">거래상품목록 {{ inventory.name }}</p>
-                {% endif %}
+                    {% if inventory.client == client.name %}
+                    <p class="inventory">거래상품목록 {{ inventory.name }}</p>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
