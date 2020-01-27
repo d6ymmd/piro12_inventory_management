@@ -39,7 +39,8 @@ def client_create(request, client=None):
 
 def client_detail(request, pk):
     client = Client.objects.get(id=pk)
-    return render(request, 'shop/client_detail.html', {'client': client, })
+    inventories = Inventory.objects.all()
+    return render(request, 'shop/client_detail.html', {'client': client, 'inventories': inventories, })
 
 
 def client_list(request):

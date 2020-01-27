@@ -9,8 +9,14 @@
                 <h5 class="name">{{ client.name }}</h5>
                 <p class="tel">{{ client.tel }}</p>
                 <p class="address">{{ client.address }}</p>
+
                 <hr />
-                <p>거래 상품 목록</p>
+
+                {% for inventory in inventories %}
+                {% if inventory.client == client.name %}
+                <p class="inventory">거래상품목록 {{ inventory.name }}</p>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
             <button>수정</button>
