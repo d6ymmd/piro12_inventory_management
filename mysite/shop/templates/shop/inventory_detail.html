@@ -9,7 +9,7 @@
                 <p class="price">가격: {{ inventory.price }}</p>
                 <p class="stock">남은 수량: {{ inventory.stock }}</p>
                 <p>제품 설명: {{ inventory.desc }}</p>
-                <p><a href="">거래처: {{ inventory.client }}</p>
+                <p><a href="{% url "client-detail" inventory.client.pk %}">거래처: {{ inventory.client }}</p>
             </div>
         </div>
             <button>수정</button>

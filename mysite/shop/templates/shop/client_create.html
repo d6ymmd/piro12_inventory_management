@@ -6,7 +6,7 @@
     <h4>거래처 등록</h4>
     <form action="{% url 'client-create' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <table class="table table-bordered">
+        <table>
             {{ form.as_table }}
         </table>
         <input type="submit" value="등록">
