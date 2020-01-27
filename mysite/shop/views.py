@@ -1,5 +1,4 @@
-import re
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import Inventory, Client
 from .forms import InventoryForm, ClientForm
@@ -12,13 +11,24 @@ def inventory_list(request):
 
 def inventory_create(request, inventory=None):
     if request.method == 'POST':
-        form = InventoryForm(request.POST, request.FILES)
+        form = InventoryForm(request.POST, request.FILES, instance=inventory)
         if form.is_valid():
             inventory = form.save()
             return redirect('inventory-list')
     else:
-        form = InventoryForm()
+        form = InventoryForm(instance=inventory)
     return render(request, 'shop/inventory_create.html', {'form': form, })
+
+
+def inventory_edit(request, pk):
+    inventory = get_object_or_404(Inventory, pk=pk)
+    return inventory_create(request, inventory)
+
+
+def inventory_delete(request, pk):
+    inventory = Inventory.objects.get(id=pk)
+    inventory.delete()
+    return redirect('inventory-list')
 
 
 def inventory_detail(request, pk):
@@ -28,13 +38,24 @@ def inventory_detail(request, pk):
 
 def client_create(request, client=None):
     if request.method == 'POST':
-        form = ClientForm(request.POST, request.FILES)
+        form = ClientForm(request.POST, request.FILES, instance=client)
         if form.is_valid():
             client = form.save()
             return redirect('client-list')
     else:
-        form = ClientForm()
+        form = ClientForm(instance=client)
     return render(request, 'shop/client_create.html', {'form': form, })
+
+
+def client_edit(request, pk):
+    client = get_object_or_404(Client, pk=pk)
+    return client_create(request, client)
+
+
+def client_delete(request, pk):
+    client = Client.objects.get(id=pk)
+    client.delete()
+    return redirect('client-list')
 
 
 def client_detail(request, pk):
