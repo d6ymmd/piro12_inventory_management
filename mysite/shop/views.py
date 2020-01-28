@@ -30,7 +30,20 @@ def inventory_list(request):
 #
 #         return redirect('inventory-list')
 #     return render(request, 'shop/inventory-detail.html', {'inventory':inventory, })
-#
+
+def inventory_plus(request, pk):
+    inventory = Inventory.objects.get(id=pk)
+    inventory.stock += 1
+    inventory.save()
+    return redirect('inventory-list')
+
+
+def inventory_minus(request, pk):
+    inventory = Inventory.objects.get(id=pk)
+    inventory.stock -= 1
+    inventory.save()
+    return redirect('inventory-list')
+
 
 def inventory_create(request, inventory=None):
     if request.method == 'POST':

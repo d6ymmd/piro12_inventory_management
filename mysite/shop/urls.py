@@ -1,7 +1,6 @@
 from django.urls import path
 
-from .views import inventory_list, inventory_create, inventory_detail, client_create, client_detail, client_list, \
-    inventory_edit, inventory_delete, client_edit, client_delete
+from .views import *
 
 urlpatterns = [
     path('', inventory_list, name="inventory-list"),
@@ -9,6 +8,8 @@ urlpatterns = [
     path('<int:pk>/', inventory_detail, name="inventory-detail"),
     path('<int:pk>/edit/', inventory_edit, name="inventory-edit"),
     path('<int:pk>/delete/', inventory_delete, name="inventory-delete"),
+    path('<int:pk>/plus/', inventory_plus, name="inventory-plus"),
+    path('<int:pk>/minus/', inventory_minus, name="inventory-minus"),
     path('client/', client_list, name="client-list"),
     path('client/create/', client_create, name="client-create"),
     path('client/<int:pk>/', client_detail, name="client-detail"),
